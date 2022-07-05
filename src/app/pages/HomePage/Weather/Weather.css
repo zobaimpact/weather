@@ -1,41 +1,29 @@
-import { createGlobalStyle } from 'styled-components';
-import { normalize } from './normalize';
-import { typography } from './typography';
-
-/* istanbul ignore next */
-export const GlobalStyle = createGlobalStyle`
-  ${normalize}
-  ${typography}
-
-  main {
-    padding: 0;
-  }
-
-  body {
-    margin: 0;
-    padding: 0 !important;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
- 
-  * {
-    box-sizing: inherit;
-  }
-
-  ul, ol {
-    // doesn't do RTL, it break a sidebar
-    padding-left: 15px;
-    margin-bottom: 0;
-  }
-
-  * {
+* {
   text-align: center;
   font-family: "Poppins", sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 100%;
+  width: 50%;
+  margin-top: 1rem;
+  padding-bottom: 10%;
+  
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px;
 }
 
 .input {
@@ -54,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
   height: 40px;
   border: none;
   border-radius: 50%;
-  background: linear-gradient(#46f8b1 0%, #0fb272 100%);
+  background: linear-gradient(#065334 0%, #0fa2b2 100%);
   color: white;
   cursor: pointer;
   border: none;
@@ -70,7 +58,23 @@ export const GlobalStyle = createGlobalStyle`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-left: -10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  width: 100%;
+  padding: 1rem;
+  width: fit-content;
+
+}
+.weather_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  border-radius: 20px;
+  padding: 1rem;
+  width: 300px;
+
 }
 
 .weather_title h1 {
@@ -111,22 +115,3 @@ li {
     flex-direction: row;
   }
 }
-
-
-  img {
-    width: 100%;
-  }
-
-  html {
-    box-sizing: border-box;
-  }
-
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
-  button, input, optgroup, select, textarea {
-    font-family: 'Poppins', sans-serif; 
-  }
-
-`;

@@ -25,13 +25,6 @@ export const Button = styled.button`
   align-items: center;
   text-decoration: none;
 
-  ${p => p.theme.direction['margin-right']}: 15px;
-
-  &:last-child {
-    margin-right: 0;
-    ${p => p.theme.direction['margin-right']}: 0;
-  }
-
   &:before {
     position: absolute;
     height: 0;
@@ -42,8 +35,7 @@ export const Button = styled.button`
     z-index: -1;
     content: '';
     top: 0;
-    transform: ${p => p.theme.direction['translate']};
-    ${p => p.theme.direction['left']}: 0px;
+   
   }
 
   p {
@@ -95,11 +87,11 @@ export const Button = styled.button`
 
     &:hover {
       p {
-        color: ${p => p.theme.color.colorText};
+        color: #cacaca;
       }
 
       svg {
-        fill: ${p => p.theme.color.colorText};
+        fill: #ffffff;
       }
     }
 
@@ -148,15 +140,7 @@ export const Button = styled.button`
   &.btn-outline-secondary {
     border: 1px solid ${StyleConstants.COLOR_LIGHT_GRAY};
 
-    &,
-    p {
-      color: ${p => p.theme.color.colorText};
-    }
-
-    svg {
-      fill: ${p => p.theme.color.colorText};
-    }
-
+   
     &:before {
       background-color: ${StyleConstants.COLOR_LIGHT_GRAY};
     }
@@ -404,17 +388,4 @@ export const Button = styled.button`
   }
 `;
 
-export const Customizer = styled.div`
-  position: fixed;
-  top: 0;
-  z-index: 102;
-  ${p => p.theme.direction['right']}: 0px;
 
-  .customizer__toggle {
-    span {
-      ${p => p.theme.direction['margin-right']}: 10px;
-      ${p => p.theme.direction['margin-left']}: 0px;
-      color: ${p => p.theme.color.colorText};
-    }
-  }
-`;

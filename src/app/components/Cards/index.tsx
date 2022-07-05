@@ -1,5 +1,4 @@
 import React from "react";
-import { Card } from "reactstrap";
 import { customMedia } from "app/styles/media";
 import styled from "styled-components";
 

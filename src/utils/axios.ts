@@ -1,25 +1,11 @@
 import axios from "axios";
 import config from "app/config";
-const token = "";
 
-/**
- * Create an Axios Client with defaults
- */
-
-const client = axios.create({
-  baseURL: `${config.Urls.baseUrl}`,
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
-});
 
 /* Api call without default toast */
 
 const axiosInstanceNoDefaultToast = axios.create({
   baseURL: `${config.Urls.baseUrl}`,
-  headers: {
-    Authorization: `Bearer ${token}`,
-  },
 });
 
 export const apiCall = function (
@@ -66,4 +52,3 @@ export const apiCall = function (
     .catch(onError);
 };
 
-export default client;

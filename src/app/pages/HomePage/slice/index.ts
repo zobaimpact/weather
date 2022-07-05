@@ -15,7 +15,8 @@ export const initialState: LandingPageState = {
   abujaCurrentWeather: {},
   losAngelesCurrentWeather: {},
   londonCurrentWeather: {},
-  lagosCurrentWeather: {}
+  lagosCurrentWeather: {},
+  userLocationForecast: {}
 };
 
 const slice = createSlice({
@@ -41,17 +42,35 @@ const slice = createSlice({
     setCurrentWeatherForLagos: (state, action: PayloadAction<any>) => {
       state.lagosCurrentWeather = action.payload;
     },
+    setWeatherForLagos: (state, action: PayloadAction<any>) => {
+      state.lagosWeather = action.payload;
+    },
     setCurrentWeatherForLondon: (state, action: PayloadAction<any>) => {
       state.londonCurrentWeather = action.payload;
+    },
+    setWeatherForLondon: (state, action: PayloadAction<any>) => {
+      state.londonWeather = action.payload;
     },
     setCurrentWeatherForAbuja: (state, action: PayloadAction<any>) => {
       state.abujaCurrentWeather = action.payload;
     },
+    setWeatherForAbuja: (state, action: PayloadAction<any>) => {
+      state.abujaWeather = action.payload;
+    },
     setCurrentWeatherForParis: (state, action: PayloadAction<any>) => {
       state.parisCurrentWeather = action.payload;
     },
+    setWeatherForParis: (state, action: PayloadAction<any>) => {
+      state.parisWeather = action.payload;
+    },
     setCurrentWeatherForLA: (state, action: PayloadAction<any>) => {
       state.losAngelesCurrentWeather = action.payload;
+    },
+    setUserCurrentWeather: (state, action: PayloadAction<any>) => {
+      state.userLocationForecast = action.payload;
+    },
+    setWeatherForLA: (state, action: PayloadAction<any>) => {
+      state.losAngelesWeather = action.payload;
     },
     fetchLosAngelesWeatherReports: (state, action: PayloadAction<any>) => {
       state.loading = true;
@@ -68,6 +87,10 @@ const slice = createSlice({
     fetchAbujaWeatherReports: (state, action: PayloadAction<any>) => {
       state.loading = true;
       state.losAngelesWeather = action.payload;
+    },
+    getUsertWeatherReports: (state, action: PayloadAction<any>) => {
+      state.loading = true;
+      state.userLocationForecast = action.payload;
     },
     clearSuccessState: state => {
       state.success = false;

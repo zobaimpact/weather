@@ -6,8 +6,6 @@ import { landingPageActions } from ".";
 
 function* fetchLagosWeatherReports(data) {
   const { city, duration } = data.payload;
-
-  console.log("Called");
   try {
     yield delay(500);
     const res = yield call(
@@ -15,15 +13,9 @@ function* fetchLagosWeatherReports(data) {
       "GET",
       `/forecast.json?key=${config.API_KEY}&q=${city}&days=${duration}&aqi=no&alerts=no`
     );
-    const currentForecast = yield call(
-      apiCall,
-      "GET",
-      `/current.json?key=${config.API_KEY}&q=${city}&aqi=no&alerts=no`
-    );
 
-    if (res.status === 200 && currentForecast.status === 200) {
-      yield put(landingPageActions.setLoadingState(false));
-      yield put(landingPageActions.setCurrentWeatherForLagos(res.data));
+    if (res.status === 200) {
+      yield put(landingPageActions.setWeatherForLagos(res.data));
     }
   } catch (err) {
     toast.error(`${err} || 'Something went wrong`);
@@ -33,7 +25,6 @@ function* fetchLagosWeatherReports(data) {
 function* fetchLosAngelesWeatherReports(data) {
   const { city, duration } = data.payload;
 
-  console.log("Called");
   try {
     yield delay(500);
     const res = yield call(
@@ -41,14 +32,9 @@ function* fetchLosAngelesWeatherReports(data) {
       "GET",
       `/forecast.json?key=${config.API_KEY}&q=${city}&days=${duration}&aqi=no&alerts=no`
     );
-    const currentForecast = yield call(
-      apiCall,
-      "GET",
-      `/current.json?key=${config.API_KEY}&q=${city}&aqi=no&alerts=no`
-    );
-    if (res.status === 200 && currentForecast.status === 200) {
-      yield put(landingPageActions.setLoadingState(false));
-      yield put(landingPageActions.fetchLosAngelesWeatherReports(res.data));
+
+    if (res.status === 200) {
+      yield put(landingPageActions.setWeatherForLA(res.data));
     }
   } catch (err) {
     toast.error(`${err} || 'Something went wrong`);
@@ -58,7 +44,6 @@ function* fetchLosAngelesWeatherReports(data) {
 function* fetchParisWeatherReports(data) {
   const { city, duration } = data.payload;
 
-  console.log("Called");
   try {
     yield delay(500);
     const res = yield call(
@@ -66,14 +51,9 @@ function* fetchParisWeatherReports(data) {
       "GET",
       `/forecast.json?key=${config.API_KEY}&q=${city}&days=${duration}&aqi=no&alerts=no`
     );
-    const currentForecast = yield call(
-      apiCall,
-      "GET",
-      `/current.json?key=${config.API_KEY}&q=${city}&aqi=no&alerts=no`
-    );
-    if (res.status === 200 && currentForecast.status === 200) {
-      yield put(landingPageActions.setLoadingState(false));
-      yield put(landingPageActions.setCurrentWeatherForParis(res.data));
+
+    if (res.status === 200) {
+      yield put(landingPageActions.setWeatherForParis(res.data));
     }
   } catch (err) {
     toast.error(`${err} || 'Something went wrong`);
@@ -83,7 +63,6 @@ function* fetchParisWeatherReports(data) {
 function* fetchLondonWeatherReports(data) {
   const { city, duration } = data.payload;
 
-  console.log("Called");
   try {
     yield delay(500);
     const res = yield call(
@@ -91,24 +70,19 @@ function* fetchLondonWeatherReports(data) {
       "GET",
       `/forecast.json?key=${config.API_KEY}&q=${city}&days=${duration}&aqi=no&alerts=no`
     );
-    const currentForecast = yield call(
-      apiCall,
-      "GET",
-      `/current.json?key=${config.API_KEY}&q=${city}&aqi=no&alerts=no`
-    );
-    if (res.status === 200 && currentForecast.status === 200) {
-      yield put(landingPageActions.setLoadingState(false));
-      yield put(landingPageActions.setCurrentWeatherForLondon(res.data));
+
+    if (res.status === 200) {
+      yield put(landingPageActions.setWeatherForLondon(res.data));
     }
   } catch (err) {
     toast.error(`${err} || 'Something went wrong`);
     yield put(landingPageActions.setLoadingState(false));
   }
 }
+
 function* fetchAbujaWeatherReports(data) {
   const { city, duration } = data.payload;
 
-  console.log("Called");
   try {
     yield delay(500);
     const res = yield call(
@@ -116,15 +90,12 @@ function* fetchAbujaWeatherReports(data) {
       "GET",
       `/forecast.json?key=${config.API_KEY}&q=${city}&days=${duration}&aqi=no&alerts=no`
     );
-    const currentForecast = yield call(
-      apiCall,
-      "GET",
-      `/current.json?key=${config.API_KEY}&q=${city}&aqi=no&alerts=no`
-    );
-    if (res.status === 200 && currentForecast.status === 200) {
-      yield put(landingPageActions.setLoadingState(false));
-      yield put(landingPageActions.setCurrentWeatherForAbuja(res.data));
+
+    if (res.status === 200) {
+      yield put(landingPageActions.setWeatherForAbuja(res.data));
     }
+
+    yield put(landingPageActions.setLoadingState(false));
   } catch (err) {
     toast.error(`${err} || 'Something went wrong`);
     yield put(landingPageActions.setLoadingState(false));

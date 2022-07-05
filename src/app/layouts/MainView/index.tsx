@@ -1,6 +1,6 @@
 import React, { memo, useEffect } from 'react';
 import { ContainerWrap } from '../components/ContainerWrap/ContainerWrap';
-import { Topbar } from '../components/Topbar';
+// import { Topbar } from '../components/Topbar';
 import { useLocation } from 'react-router-dom';
 
 interface Props {
@@ -19,7 +19,7 @@ export const MainView = memo((props: Props) => {
   return (
     <div>
       <div className="layout">
-        <Topbar />
+        {/* <Topbar /> */}
       </div>
       <ContainerWrap className="container_wrap">{props.children}</ContainerWrap>
     </div>

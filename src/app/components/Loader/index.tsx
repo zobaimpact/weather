@@ -16,12 +16,14 @@ export function Loader() {
   );
 }
 const Container = styled.div`
-  position: fixed;
-  width: 100vw;
+  /* position: fixed; */
+  position: relative;
+
+  width: 100%;
   height: 100vh;
 `;
 const Background = styled.div`
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -43,7 +45,6 @@ const LoaderDiv = styled.div`
   display: inline-block;
   position: relative;
   top: 40%;
-  left: 50%;
   transform: translate(-50%, -50%);
   width: 80px;
   height: 80px;

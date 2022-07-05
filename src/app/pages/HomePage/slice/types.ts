@@ -10,6 +10,7 @@ export interface LandingPageState {
   londonCurrentWeather?: any;
   abujaCurrentWeather?: any;
   losAngelesCurrentWeather?: any;
+  userLocationForecast?: any;
   error?: any;
   success?: boolean;
 }
