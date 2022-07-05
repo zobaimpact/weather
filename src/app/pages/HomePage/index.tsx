@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useCallback, memo } from "react";
 import styled from "styled-components/macro";
 // import { customMedia } from "app/styles/media";

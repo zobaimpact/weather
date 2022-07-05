@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
 import { MainWrapper } from "app/layouts/MainWrapper";
